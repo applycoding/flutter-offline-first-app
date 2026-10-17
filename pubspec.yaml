@@ -1,0 +1,28 @@
+name: flutter_offline_first_app
+description: Offline-first field inspection checklists with Drift, a sync queue, and a fake REST backend.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  drift: ">=2.31.0 <2.32.0"
+  sqlite3: ">=2.6.0 <3.0.0"
+  sqlite3_flutter_libs: ">=0.5.41 <0.6.0"
+  path_provider: ^2.1.5
+  path: ^1.9.0
+  flutter_riverpod: 3.4.3
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ">=2.31.0 <2.32.0"
+  build_runner: ^2.4.0
+
+flutter:
+  uses-material-design: true
