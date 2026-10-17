@@ -116,6 +116,10 @@ Future<void> pumpApp(WidgetTester tester, TestEnv env) async {
 }
 
 Future<void> shutdown(WidgetTester tester, TestEnv env) async {
+  // Unmount first so Drift can drop its stream subscriptions. Pump once more
+  // so the zero-duration cache timers fire before close(); closing while those
+  // fake-async timers are pending never returns.
   await tester.pumpWidget(const SizedBox.shrink());
+  await tester.pump(const Duration(milliseconds: 50));
   await env.db.close();
 }

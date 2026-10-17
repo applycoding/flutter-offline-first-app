@@ -94,8 +94,8 @@ void main() {
       await pumpApp(tester, env);
       await tester.tap(find.text('North Pump House'));
       await tester.pumpAndSettle();
-      await tester.scrollUntilVisible(
-          find.text('Housekeeping and access clear'), 200);
+      await tester.drag(find.byType(ListView), const Offset(0, -400));
+      await tester.pumpAndSettle();
       expect(find.text('Housekeeping and access clear'), findsOneWidget);
       expect(tester.takeException(), isNull);
     } finally {
